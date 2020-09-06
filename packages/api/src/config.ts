@@ -3,6 +3,15 @@ import { Scope } from "./service/firebase";
 
 export interface Config {
   youtube_data_api: { api_key: string };
+  /**
+   * https://developer.twitter.com/en/apps/16588056
+   */
+  twitter_media_app: {
+    consumer_key: string;
+    consumer_secret: string;
+    access_token_secret: string;
+    access_token_key: string;
+  };
   cert: {
     games_sokontokoro_factory_net: object;
     dl_code_web_app: object;

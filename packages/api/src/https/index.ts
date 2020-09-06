@@ -2,6 +2,7 @@ import * as express from "express";
 import * as cors from "cors";
 import * as bodyParser from "body-parser";
 
+import twitterRouter from "./twitter";
 import youtubeRouter from "./youtube";
 import authRouter from "./auth";
 
@@ -9,6 +10,7 @@ const httpsApp = express();
 httpsApp.use(cors({ origin: true }));
 httpsApp.use(bodyParser.urlencoded({ extended: true }));
 httpsApp.use(bodyParser.json());
+httpsApp.use("/twitter", twitterRouter);
 httpsApp.use("/youtube", youtubeRouter);
 httpsApp.use("/auth", authRouter);
 httpsApp.use(
