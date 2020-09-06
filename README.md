@@ -53,6 +53,7 @@ $ firebase functions:config:get --project sokontokoro-factory-develop
 
 ```shell script
 $ KEY=youtube_data_api                  ; firebase functions:config:set $KEY="$(cat .runtimeconfig.json | jq ".$KEY")" --project sokontokoro-factory-develop
+$ KEY=twitter_media_app                 ; firebase functions:config:set $KEY="$(cat .runtimeconfig.json | jq ".$KEY")" --project sokontokoro-factory-develop
 $ KEY=cert.games_sokontokoro_factory_net; firebase functions:config:set $KEY="$(cat .runtimeconfig.json | jq ".$KEY")" --project sokontokoro-factory-develop
 $ KEY=cert.dl_code_web_app              ; firebase functions:config:set $KEY="$(cat .runtimeconfig.json | jq ".$KEY")" --project sokontokoro-factory-develop
 $ KEY=auth0                             ; firebase functions:config:set $KEY="$(cat .runtimeconfig.json | jq ".$KEY")" --project sokontokoro-factory-develop
@@ -66,21 +67,11 @@ $ firebase functions:config:get --project sokontokoro-factory
 
 ```shell script
 $ KEY=youtube_data_api                  ; firebase functions:config:set $KEY="$(cat .runtimeconfig.pro.json | jq ".$KEY")" --project sokontokoro-factory
+$ KEY=twitter_media_app                 ; firebase functions:config:set $KEY="$(cat .runtimeconfig.pro.json | jq ".$KEY")" --project sokontokoro-factory
 $ KEY=cert.games_sokontokoro_factory_net; firebase functions:config:set $KEY="$(cat .runtimeconfig.pro.json | jq ".$KEY")" --project sokontokoro-factory
 $ KEY=cert.dl_code_web_app              ; firebase functions:config:set $KEY="$(cat .runtimeconfig.pro.json | jq ".$KEY")" --project sokontokoro-factory
 $ KEY=auth0                             ; firebase functions:config:set $KEY="$(cat .runtimeconfig.pro.json | jq ".$KEY")" --project sokontokoro-factory
 
-```
-
-```bash
-// cert.games_sokontokoro_factory_net
-$ firebase functions:config:set --project sokontokoro-factory-develop cert.games_sokontokoro_factory_net="$(cat .runtimeconfig.json | jq '.cert.games_sokontokoro_factory_net')"
-
-// cert.dl_code_web_app
-$ firebase functions:config:set --project sokontokoro-factory-develop cert.dl_code_web_app="$(cat .runtimeconfig.json | jq '.cert.dl_code_web_app')"
-
-// auth0
-$ firebase functions:config:set --project sokontokoro-factory-develop auth0="$(cat .runtimeconfig.json | jq '.auth0')"
 ```
 
 _local_
