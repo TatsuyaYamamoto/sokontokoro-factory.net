@@ -6,10 +6,9 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc",
-    "start": "run-p dev serve",
+    "start": "run-p dev emulators",
     "dev": "tsc -w",
-    "serve": "firebase serve --only hosting:api,functions",
-    "shell": "npm run build && firebase functions:shell",
+    "emulators": "firebase emulators:start --only hosting,functions --project sokontokoro-factory-develop",
     "deploy-dev": "firebase deploy --only hosting:api,functions --project sokontokoro-factory-develop",
     "deploy-pro": "firebase deploy --only hosting:api,functions --project sokontokoro-factory",
     "logs": "firebase functions:log"
