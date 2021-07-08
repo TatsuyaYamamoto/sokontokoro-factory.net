@@ -10,6 +10,8 @@ html(lang=`${lang}`)
     include components/_head
 
     script(async src="https://platform.twitter.com/widgets.js" charset="utf-8")
+    script(src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js")
+
 
     block dependency
       link(rel="stylesheet" href=`./assets/css/activity.scss`)
@@ -26,3 +28,10 @@ html(lang=`${lang}`)
     footer
       include components/_footer
 
+    script
+      | lozad('.lozad', {
+      |   load: function(el) {
+      |     el.firstElementChild.className = "twitter-tweet"
+      |     twttr.widgets.load(el);
+      |   }
+      | }).observe();;
