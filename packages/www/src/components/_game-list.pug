@@ -15,6 +15,21 @@ mixin GameListItem(title, comment, thumbImageUrl, url)
 
 div.mdc-layout-grid
   div.mdc-layout-grid__inner
+    div.mdc-layout-grid__cell--span-4
+      +GameListItem(
+        "復習！サイバーセキュリティ月間",
+        "サイバーセキュリティ月間で学んだことを一緒に復習しましょう！",
+        "https://review-lovelive-cyber-security.t28.dev/images/ogp.png",
+        "https://review-lovelive-cyber-security.t28.dev/"
+      )
+
+    div.mdc-layout-grid__cell--span-4
+      +GameListItem(
+        "りなちゃんボックスどこ？",
+        "シャッフルされたダンボールから、隠れた璃奈ちゃんを見つけ出そう！",
+        "https://games.sokontokoro-factory.net/rinadoko/assets/images/ogp.jpg",
+        "https://games.sokontokoro-factory.net/rinadoko"
+      )
 
     div.mdc-layout-grid__cell--span-4
       +GameListItem(
