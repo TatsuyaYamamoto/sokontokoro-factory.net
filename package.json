@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "sokontokoro factory",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "github"
+  "engines": {
+    "node": "12",
+    "npm": "7"
   },
   "author": "Tatuya Yamamoto",
   "license": "MIT",
