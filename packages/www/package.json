@@ -6,10 +6,10 @@
   "scripts": {
     "start": "NODE_ENV=local parcel serve src/{index,landing,404}.pug",
     "clean": "rm -rf dist",
-    "deploy-dev": "yarn clean && yarn build-dev && yarn copy-ogp && firebase deploy --only hosting:w3 --project sokontokoro-factory-develop",
-    "deploy-pro": "yarn clean && yarn build-pro && yarn copy-ogp && firebase deploy --only hosting:w3 --project sokontokoro-factory",
-    "build-dev": "NODE_ENV=development yarn parcel build src/{index,landing,404}.pug",
-    "build-pro": "NODE_ENV=production  yarn parcel build src/{index,landing,404}.pug",
+    "deploy-dev": "npm run clean && npm run build-dev && npm run copy-ogp && firebase deploy --only hosting:w3 --project sokontokoro-factory-develop",
+    "deploy-pro": "npm run clean && npm run build-pro && npm run copy-ogp && firebase deploy --only hosting:w3 --project sokontokoro-factory",
+    "build-dev": "NODE_ENV=development parcel build src/{index,landing,404}.pug",
+    "build-pro": "NODE_ENV=production  parcel build src/{index,landing,404}.pug",
     "copy-ogp": "mkdir -p dist/__ogp && cp src/assets/__ogp/* dist/__ogp"
   },
   "sass": {
@@ -30,6 +30,7 @@
     "@types/react-dom": "^16.9.5",
     "@types/styled-components": "^4.4.2",
     "autoprefixer": "^9.7.1",
+    "firebase-tools": "^9.16.0",
     "jstransformer-markdown-it": "^2.1.0",
     "marked": "^0.6.2",
     "node-sass": "^4.13.1",
