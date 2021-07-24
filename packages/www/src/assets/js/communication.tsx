@@ -258,17 +258,11 @@ const CommunicationPage: React.FC = () => {
   );
 };
 
-// TODO
-// @ts-ignore
-import HuiFontP from "../../../../cdn/public/fonts/HuiFontP29.ttf";
-const huiFontPrl =
-  process.env.NODE_ENV === "local"
-    ? HuiFontP
-    : "https://cdn.sokontokoro-factory.net/fonts/HuiFontP29.ttf";
+const huiFontUrl = "https://cdn.sokontokoro-factory.net/fonts/HuiFontP29.ttf";
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: 'Hui';
-        src: url(${huiFontPrl}) format("truetype");
+        src: url(${huiFontUrl}) format("truetype");
     }
 `;
 
