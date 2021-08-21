@@ -1,0 +1,69 @@
+@use "../assets/css/base";
+@use "~@material/theme";
+@use "~@material/typography/_typography";
+
+.footer {
+  background-color: base.$mdc-theme-primary;
+  color: #ffffff;
+
+  padding: 20px 0;
+
+  &__content {
+    @extend %page-element;
+  }
+
+  &__brand {
+    color: #ffffff;
+    text-decoration: none;
+
+    &__title {
+      @include typography.typography("headline5");
+    }
+
+    &__subtitle {
+      @include typography.typography("caption");
+    }
+  }
+
+  &__connect_icons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
+    ul {
+      list-style: none;
+
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__icon {
+      color: #ffffff;
+      font-size: 40px;
+      margin: 10px;
+    }
+  }
+}
+
+.copyright {
+  background-color: theme.$orange-800;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &__content {
+    @extend %page-element;
+    @include typography.typography("caption");
+    color: #ffffff;
+
+    > a {
+      color: #ffffff;
+      float: right;
+      text-decoration: none;
+    }
+  }
+}
