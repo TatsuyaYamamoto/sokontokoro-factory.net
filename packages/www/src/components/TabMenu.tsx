@@ -1,0 +1,128 @@
+import React, { FC } from "react"
+import { Link } from "gatsby"
+import clsx from "clsx"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faHome,
+  faGamepad,
+  faMusic,
+  faUserFriends,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons"
+
+import * as styles from "./TabMenu.module.scss"
+
+const Indicator = (props: { active: boolean }) => (
+  <span
+    className={clsx(styles.indicator, props.active && styles.indicator__active)}
+  >
+    <span className={styles.indicator__content} />
+  </span>
+)
+
+interface TabMenuProps {
+  active: "home" | "game" | "music" | "communication" | "inquire"
+}
+const TabMenu: FC<TabMenuProps> = ({ active }) => {
+  return (
+    <div className={styles.tabs}>
+      <div className={styles.tabScroller}>
+        <div className={styles.tabScroller__scrollArea}>
+          <div className={styles.tabScroller__scrollContent}>
+            <Link
+              to="/"
+              className={clsx(
+                styles.tab,
+                active === "home" && styles.tab__active
+              )}
+            >
+              <span className={styles.tab__content}>
+                <FontAwesomeIcon className={styles.tab__icon} icon={faHome} />
+                <span className={styles.tab__label}>ホーム</span>
+              </span>
+
+              <Indicator active={active === "home"} />
+              <span className="mdc-tab__ripple mdc-ripple-upgraded" />
+            </Link>
+
+            <a
+              className={clsx(
+                styles.tab,
+                active === "game" && styles.tab__active
+              )}
+              href="https://games.sokontokoro-factory.net/"
+            >
+              <span className={styles.tab__content}>
+                <FontAwesomeIcon
+                  className={styles.tab__icon}
+                  icon={faGamepad}
+                />
+                <span className={styles.tab__label}>ゲーム</span>
+              </span>
+
+              <Indicator active={active === "game"} />
+              <span className="mdc-tab__ripple mdc-ripple-upgraded" />
+            </a>
+
+            <Link
+              to="/music"
+              className={clsx(
+                styles.tab,
+                active === "music" && styles.tab__active
+              )}
+            >
+              <span className={styles.tab__content}>
+                <FontAwesomeIcon className={styles.tab__icon} icon={faMusic} />
+
+                <span className={styles.tab__label}>Music</span>
+              </span>
+
+              <Indicator active={active === "music"} />
+              <span className="mdc-tab__ripple mdc-ripple-upgraded" />
+            </Link>
+
+            <Link
+              to="/communication"
+              className={clsx(
+                styles.tab,
+                active === "communication" && styles.tab__active
+              )}
+            >
+              <span className={styles.tab__content}>
+                <FontAwesomeIcon
+                  className={styles.tab__icon}
+                  icon={faUserFriends}
+                />
+
+                <span className={styles.tab__label}>交流ノート</span>
+              </span>
+
+              <Indicator active={active === "communication"} />
+              <span className="mdc-tab__ripple mdc-ripple-upgraded" />
+            </Link>
+
+            <a
+              className={clsx(
+                styles.tab,
+                active === "inquire" && styles.tab__active
+              )}
+            >
+              <span className={styles.tab__content}>
+                <FontAwesomeIcon
+                  className={styles.tab__icon}
+                  icon={faEnvelope}
+                />
+                <span className={styles.tab__label}>問い合わせ</span>
+              </span>
+
+              <Indicator active={active === "inquire"} />
+              <span className="mdc-tab__ripple mdc-ripple-upgraded" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default TabMenu

@@ -14,6 +14,7 @@
 
   &__row {
     @extend .mdc-top-app-bar__row;
+    height: unset;
   }
 
   &__section {

@@ -1,0 +1,67 @@
+@use "~@material/tab-bar/mdc-tab-bar";
+@use "~@material/tab-scroller/mdc-tab-scroller";
+@use "~@material/tab-indicator/mdc-tab-indicator";
+@use "~@material/tab/mdc-tab";
+
+.tabs {
+  @extend .mdc-tab-bar;
+  width: unset;
+  margin: 0 auto;
+}
+
+.tabScroller {
+  @extend .mdc-tab-scroller;
+
+  &__scrollArea {
+    @extend .mdc-tab-scroller__scroll-area;
+    @extend .mdc-tab-scroller__scroll-area--scroll;
+  }
+
+  &__scrollContent {
+    @extend .mdc-tab-scroller__scroll-content;
+  }
+}
+
+.tab {
+  $this: &;
+
+  @extend .mdc-tab;
+  @extend .mdc-tab--stacked;
+
+  &__active {
+    @extend .mdc-tab--active;
+  }
+
+  &__content {
+    @extend .mdc-tab__content;
+  }
+
+  &__icon {
+    @extend .mdc-tab__icon;
+
+    #{$this}__active & {
+      color: rgba(0, 0, 0, 0.87) !important;
+    }
+  }
+
+  &__label {
+    @extend .mdc-tab__text-label;
+    #{$this}__active & {
+      color: rgba(0, 0, 0, 0.87) !important;
+    }
+  }
+}
+
+.indicator {
+  @extend .mdc-tab-indicator;
+
+  &__active {
+    @extend .mdc-tab-indicator--active;
+  }
+
+  &__content {
+    @extend .mdc-tab-indicator__content;
+    @extend .mdc-tab-indicator__content--underline;
+    border-color: rgba(0, 0, 0, 0.87) !important;
+  }
+}

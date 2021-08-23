@@ -1,10 +1,12 @@
 import React, { FC } from "react"
+import clsx from "clsx"
 import { StaticImage } from "gatsby-plugin-image"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLanguage } from "@fortawesome/free-solid-svg-icons"
 
 import * as styles from "./Hero.module.scss"
+import TabMenu from "./TabMenu"
 
 interface HeroProps {
   title: string
@@ -16,10 +18,10 @@ const Hero: FC<HeroProps> = ({ title }) => {
     <div className={styles.toolbar}>
       <div className={styles.toolbar__row}>
         <section
-          className={[
+          className={clsx(
             styles.toolbar__section,
-            styles.toolbar__section__alignEnd,
-          ].join(" ")}
+            styles.toolbar__section__alignEnd
+          )}
         >
           <a className={styles.toolbar__actionItem} href="/">
             <FontAwesomeIcon
@@ -43,6 +45,9 @@ const Hero: FC<HeroProps> = ({ title }) => {
             />
           </a>
         </section>
+      </div>
+      <div className={styles.toolbar__row}>
+        <TabMenu />
       </div>
     </div>
   )
