@@ -1,0 +1,44 @@
+@use "~@material/top-app-bar/mdc-top-app-bar";
+@use "~@material/top-app-bar";
+@use "~@material/elevation";
+
+@use "../assets/css/base";
+@use "../assets/css/pixel_m_plus";
+
+.toolbar {
+  @extend .mdc-top-app-bar;
+  @include top-app-bar.fill-color-accessible(base.$mdc-theme-primary);
+  @include elevation.elevation(2);
+
+  position: relative;
+
+  &__row {
+    @extend .mdc-top-app-bar__row;
+  }
+
+  &__section {
+    @extend .mdc-top-app-bar__section;
+
+    //height: 150px;
+    //line-height: 150px;
+    &__alignEnd {
+      @extend .mdc-top-app-bar__section--align-end;
+    }
+  }
+
+  &__title {
+    @extend .mdc-top-app-bar__title;
+    font-size: 30px;
+    font-family: "PixelMplus";
+
+    color: white;
+    text-decoration: none;
+  }
+
+  &__actionItem {
+    @extend .mdc-top-app-bar__action-item;
+
+    color: white;
+    text-decoration: none;
+  }
+}

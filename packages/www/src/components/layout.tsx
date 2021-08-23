@@ -8,7 +8,7 @@
 import React, { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Hero from "./Hero"
 import Footer from "./Footer"
 
 const Layout: FC = ({ children }) => {
@@ -24,7 +24,7 @@ const Layout: FC = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Hero title={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
           margin: `0 auto`,

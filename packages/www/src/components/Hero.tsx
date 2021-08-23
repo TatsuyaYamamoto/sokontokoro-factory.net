@@ -1,0 +1,51 @@
+import React, { FC } from "react"
+import { StaticImage } from "gatsby-plugin-image"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLanguage } from "@fortawesome/free-solid-svg-icons"
+
+import * as styles from "./Hero.module.scss"
+
+interface HeroProps {
+  title: string
+}
+
+const Hero: FC<HeroProps> = ({ title }) => {
+  return (
+    // <div className="mdc-top-app-bar mdc-elevation--z2 toolbar">
+    <div className={styles.toolbar}>
+      <div className={styles.toolbar__row}>
+        <section
+          className={[
+            styles.toolbar__section,
+            styles.toolbar__section__alignEnd,
+          ].join(" ")}
+        >
+          <a className={styles.toolbar__actionItem} href="/">
+            <FontAwesomeIcon
+              icon={faLanguage}
+              className="material-icons mdc-toolbar__menu-icon"
+            />
+          </a>
+        </section>
+      </div>
+      <div className={styles.toolbar__row}>
+        <section className={styles.toolbar__section}>
+          <a className={styles.toolbar__title} href="/">
+            <span className="logo-text">{title}</span>
+            <StaticImage
+              src="../assets/image/hammer.png"
+              width={20}
+              quality={95}
+              formats={["auto", "webp", "avif"]}
+              alt="A Gatsby astronaut"
+              style={{ marginBottom: `1.45rem` }}
+            />
+          </a>
+        </section>
+      </div>
+    </div>
+  )
+}
+
+export default Hero
