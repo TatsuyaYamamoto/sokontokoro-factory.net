@@ -1,0 +1,36 @@
+@use "~@material/typography";
+@use "../assets/css/base";
+
+.blank {
+  height: 200px;
+}
+
+.about {
+  background-color: white;
+
+  &__content {
+    @extend %page-element;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-top: 32px;
+    padding-bottom: 24px;
+    height: 100%;
+
+    text-align: center;
+  }
+}
+
+.typographyTitle {
+  @include typography.typography("headline4");
+}
+
+.typographySubTitle {
+  @include typography.typography("subtitle1");
+}
+
+.typographyBody {
+  @include typography.typography("body1");
+}
