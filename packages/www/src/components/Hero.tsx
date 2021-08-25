@@ -47,7 +47,7 @@ const Hero: FC<HeroProps> = ({ title }) => {
         </section>
       </div>
       <div className={styles.toolbar__row}>
-        <TabMenu />
+        <TabMenu active={"home"} />
       </div>
     </div>
   )

@@ -1,0 +1,130 @@
+@use "../../assets/css/font_hui";
+
+.note {
+  min-height: 500px;
+}
+
+.page {
+  position: relative;
+  max-width: 600px;
+  min-height: 800px;
+  margin: 2em auto;
+  padding: 0.3em 1em 2em 1em;
+
+  color: #696969;
+  font-weight: bold;
+
+  border: solid 1px #e6e6e6;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+
+  &__sen {
+    // min-heightを定義している親要素に対して % を使う対策
+    // https://stackoverflow.com/questions/8468066/child-inside-parent-with-min-height-100-not-inheriting-height
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    padding: 2em 1em 0.2em 1em;
+    box-sizing: border-box;
+
+    background-color: #fff;
+    background-image: linear-gradient(
+        90deg,
+        rgba(237, 119, 128, 0) 0%,
+        rgba(237, 119, 128, 0) 50%,
+        #fff 0%,
+        #fff 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(100, 100, 100, 0) 0%,
+        rgba(100, 100, 100, 0) 97.5%,
+        #646464 100%
+      );
+    background-size: 8px 100%, 100% 2em;
+  }
+}
+
+.comment {
+  margin: 30px;
+
+  &__user {
+  }
+
+  &__channel {
+  }
+}
+
+.userComment {
+  position: relative;
+  font-family: "Hui";
+  font-size: 20px;
+
+  &__date {
+    transform: rotate(-2deg);
+
+    ::after {
+      content: "\A";
+      white-space: pre;
+    }
+  }
+
+  &__text {
+    margin-left: 50px;
+    box-decoration-break: clone;
+  }
+
+  &__name {
+    margin-left: 20px;
+
+    vertical-align: middle;
+    transform: rotate(1deg);
+  }
+}
+
+.channelComment {
+  font-family: "Hui", Sans-Serif;
+  font-size: 15px;
+
+  line-height: 1em;
+
+  text-align: right;
+  margin-top: 5px;
+
+  &__text {
+    color: #ff5f08;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+.videoThumbnail {
+  position: relative;
+
+  &__tape {
+    width: 40px;
+
+    position: absolute;
+    top: -20px;
+
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(139, 198, 202, 0.3),
+      rgba(139, 198, 202, 0.3) 10px,
+      #fff 0,
+      #fff 20px
+    );
+    transform: rotate(-10deg);
+    padding: 0.8em;
+    color: #65513f;
+  }
+
+  &__image {
+    width: 70px;
+  }
+}
