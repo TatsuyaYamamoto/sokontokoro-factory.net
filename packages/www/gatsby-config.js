@@ -26,9 +26,22 @@ module.exports = {
         icon: `src/assets/image/hammer.png`
       }
     },
-    `gatsby-plugin-gatsby-cloud`
+    `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/markdown`,
+        name: `markdown`
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: []
+      }
+    }
   ]
 }

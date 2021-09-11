@@ -41,15 +41,15 @@ const LandingPage: FC<PageProps> = ({ data }) => {
           </Box>
           {[
             {
-              to: "/md/20190908_bokulove23",
+              to: "/afterword/20190908_bokulove23",
               label: "僕ラブ23(2019/9/8)のあとがき",
             },
             {
-              to: "/md/20180623_numalove6",
+              to: "/afterword/20180623_numalove6",
               label: "沼ラブ6(2019/6/23)のあとがき",
             },
             {
-              to: "/md/20180324_bokulove22",
+              to: "/afterword/20180324_bokulove22",
               label: "僕ラブ22(2019/3/24)のあとがき",
             },
           ].map(({ to, label }) => (
