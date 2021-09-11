@@ -1,3 +1,11 @@
+declare module "*.jpg"
+
+declare namespace JSX {
+  interface IntrinsicElements {
+    "embedded-tweet": any
+  }
+}
+
 // https://stackoverflow.com/questions/41336858/how-to-import-css-modules-with-typescript-react-and-webpack
 declare module "*.css" {
   interface IClassNames {
