@@ -6,6 +6,8 @@ module.exports = {
     siteUrl: `https://www.sokontokoro-factory.net/`
   },
   plugins: [
+    // https://chakra-ui.com/guides/integrations/with-gatsby#usage
+    `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,

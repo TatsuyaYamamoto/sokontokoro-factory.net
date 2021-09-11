@@ -8,6 +8,7 @@ import {
   faMusic,
   faUserFriends,
   faEnvelope,
+  faNewspaper,
 } from "@fortawesome/free-solid-svg-icons"
 
 import * as styles from "./TabMenu.module.scss"
@@ -21,7 +22,7 @@ const Indicator = (props: { active: boolean }) => (
 )
 
 interface TabMenuProps {
-  active: "home" | "game" | "music" | "communication" | "inquire"
+  active: "home" | "activity" | "game" | "music" | "communication" | "inquire"
 }
 const TabMenu: FC<TabMenuProps> = ({ active }) => {
   return (
@@ -42,6 +43,23 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
               </span>
 
               <Indicator active={active === "home"} />
+              <span className="mdc-tab__ripple mdc-ripple-upgraded" />
+            </Link>
+
+            <Link
+              to="/activity"
+              className={clsx(
+                styles.tab,
+                active === "activity" && styles.tab__active
+              )}
+            >
+              <span className={styles.tab__content}>
+                <FontAwesomeIcon className={styles.tab__icon} icon={faNewspaper} />
+
+                <span className={styles.tab__label}>Activity</span>
+              </span>
+
+              <Indicator active={active === "music"} />
               <span className="mdc-tab__ripple mdc-ripple-upgraded" />
             </Link>
 
