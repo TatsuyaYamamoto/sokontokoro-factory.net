@@ -56,10 +56,10 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
               <span className={styles.tab__content}>
                 <FontAwesomeIcon className={styles.tab__icon} icon={faNewspaper} />
 
-                <span className={styles.tab__label}>Activity</span>
+                <span className={styles.tab__label}>アクティビティ</span>
               </span>
 
-              <Indicator active={active === "music"} />
+              <Indicator active={active === "activity"} />
               <span className="mdc-tab__ripple mdc-ripple-upgraded" />
             </Link>
 
@@ -92,7 +92,7 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
               <span className={styles.tab__content}>
                 <FontAwesomeIcon className={styles.tab__icon} icon={faMusic} />
 
-                <span className={styles.tab__label}>Music</span>
+                <span className={styles.tab__label}>音楽</span>
               </span>
 
               <Indicator active={active === "music"} />

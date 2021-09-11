@@ -1,15 +1,19 @@
 import React, { FC } from "react"
-import { PageProps } from "gatsby"
+import { PageProps, graphql } from "gatsby"
+
 import { Box } from "@chakra-ui/react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import MusicList from "../components/MusicList"
+import Hero from "../components/Hero"
 
-const MusicPage: FC<PageProps> = props => {
+const MusicPage: FC<PageProps> = ({ data }) => {
   return (
     <Layout>
-      <Seo title="MusicList" />
+      <Seo title="音楽" />
+      {/* @ts-ignore TODO */}
+      <Hero title={data.site.siteMetadata.title} activeTab="music" />
       <Box m={6}>
         <MusicList />
       </Box>
@@ -18,3 +22,13 @@ const MusicPage: FC<PageProps> = props => {
 }
 
 export default MusicPage
+
+export const query = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

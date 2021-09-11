@@ -10,9 +10,16 @@ import TabMenu from "./TabMenu"
 
 interface HeroProps {
   title: string
+  activeTab:
+    | "home"
+    | "activity"
+    | "game"
+    | "music"
+    | "communication"
+    | "inquire"
 }
 
-const Hero: FC<HeroProps> = ({ title }) => {
+const Hero: FC<HeroProps> = ({ title, activeTab }) => {
   return (
     // <div className="mdc-top-app-bar mdc-elevation--z2 toolbar">
     <div className={styles.toolbar}>
@@ -47,7 +54,7 @@ const Hero: FC<HeroProps> = ({ title }) => {
         </section>
       </div>
       <div className={styles.toolbar__row}>
-        <TabMenu active={"home"} />
+        <TabMenu active={activeTab} />
       </div>
     </div>
   )
