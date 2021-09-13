@@ -12,6 +12,15 @@ module.exports = {
     // https://chakra-ui.com/guides/integrations/with-gatsby#usage
     `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [`UA-127664761-3`],
+        pluginConfig: {
+          head: true
+        }
+      }
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     {

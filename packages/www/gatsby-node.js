@@ -37,8 +37,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 }
 
 exports.onCreatePage = async (params, pluginOptions) => {
-  console.log("params", params)
-  console.log("pluginOptions", pluginOptions)
   const { actions, page } = params
   const { createPage } = actions
   const i18n = siteMetadata.i18n
