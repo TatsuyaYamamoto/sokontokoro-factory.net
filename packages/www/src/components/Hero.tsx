@@ -1,15 +1,14 @@
 import React, { FC } from "react"
-import clsx from "clsx"
+import { useTranslation } from "react-i18next"
 import { StaticImage } from "gatsby-plugin-image"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLanguage } from "@fortawesome/free-solid-svg-icons"
+import { Box, Flex, Text } from "@chakra-ui/react"
 
-import * as styles from "./Hero.module.scss"
 import TabMenu from "./TabMenu"
+import I18nLink from "./I18nLink"
+import TranslateLinkButton from "./TranslateLinkButton"
 
 interface HeroProps {
-  title: string
   activeTab:
     | "home"
     | "activity"
@@ -17,46 +16,48 @@ interface HeroProps {
     | "music"
     | "communication"
     | "inquire"
+  expanding?: boolean
 }
 
-const Hero: FC<HeroProps> = ({ title, activeTab }) => {
+const Hero: FC<HeroProps> = ({ activeTab, expanding = false }) => {
+  const { t } = useTranslation()
+  const brandIcon = (
+    <StaticImage
+      src="../assets/image/hammer.png"
+      width={40}
+      quality={95}
+      formats={["auto", "webp", "avif"]}
+      alt="A Gatsby astronaut"
+    />
+  )
+
   return (
-    // <div className="mdc-top-app-bar mdc-elevation--z2 toolbar">
-    <div className={styles.toolbar}>
-      <div className={styles.toolbar__row}>
-        <section
-          className={clsx(
-            styles.toolbar__section,
-            styles.toolbar__section__alignEnd
-          )}
-        >
-          <a className={styles.toolbar__actionItem} href="/">
-            <FontAwesomeIcon
-              icon={faLanguage}
-              className="material-icons mdc-toolbar__menu-icon"
-            />
-          </a>
-        </section>
-      </div>
-      <div className={styles.toolbar__row}>
-        <section className={styles.toolbar__section}>
-          <a className={styles.toolbar__title} href="/">
-            <span className="logo-text">{title}</span>
-            <StaticImage
-              src="../assets/image/hammer.png"
-              width={20}
-              quality={95}
-              formats={["auto", "webp", "avif"]}
-              alt="A Gatsby astronaut"
-              style={{ marginBottom: `1.45rem` }}
-            />
-          </a>
-        </section>
-      </div>
-      <div className={styles.toolbar__row}>
+    <Box background={`#f57c00`}>
+      <Flex height={16} paddingX={3} paddingY={2}>
+        <Flex flex={1} justifyContent="flex-start" alignItems="center" />
+        <Flex flex={1} justifyContent="center" alignItems="center">
+          {!expanding && <I18nLink to="/">{brandIcon}</I18nLink>}
+        </Flex>
+        <Flex flex={1} justifyContent="flex-end" alignItems="center">
+          <TranslateLinkButton />
+        </Flex>
+      </Flex>
+      {expanding && (
+        <Flex height={40} justifyContent="center" alignItems="center">
+          <I18nLink to="/">
+            <Flex alignItems="center">
+              <Text fontFamily="PixelMplus" fontSize={30} color={`#ffffff`}>
+                {t(`meta_site_name`)}
+              </Text>
+              {brandIcon}
+            </Flex>
+          </I18nLink>
+        </Flex>
+      )}
+      <Flex>
         <TabMenu active={activeTab} />
-      </div>
-    </div>
+      </Flex>
+    </Box>
   )
 }
 

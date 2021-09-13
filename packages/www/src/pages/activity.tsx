@@ -11,8 +11,7 @@ const ActivityPage: FC<PageProps> = ({ data }) => {
   return (
     <Layout>
       <Seo title="アクティビティ" />
-      {/* @ts-ignore TODO */}
-      <Hero title={data.site.siteMetadata.title} activeTab="activity" />
+      <Hero activeTab="activity" />
       <Box m={6}>
         <ActivityList />
       </Box>

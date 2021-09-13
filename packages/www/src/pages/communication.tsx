@@ -10,8 +10,7 @@ const CommunicationPage: FC<PageProps> = ({ data }) => {
   return (
     <Layout>
       <Seo title="交流ノート" />
-      {/* @ts-ignore TODO */}
-      <Hero title={data.site.siteMetadata.title} activeTab="communication" />
+      <Hero activeTab="communication" />
       <CommunicationNote />
     </Layout>
   )

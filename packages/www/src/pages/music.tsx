@@ -12,8 +12,7 @@ const MusicPage: FC<PageProps> = ({ data }) => {
   return (
     <Layout>
       <Seo title="音楽" />
-      {/* @ts-ignore TODO */}
-      <Hero title={data.site.siteMetadata.title} activeTab="music" />
+      <Hero activeTab="music" />
       <Box m={6}>
         <MusicList />
       </Box>

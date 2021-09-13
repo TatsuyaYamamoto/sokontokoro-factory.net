@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import { StaticImage } from "gatsby-plugin-image"
+import I18nLink from "../components/I18nLink"
 
 const LandingPage: FC<PageProps> = ({ data }) => {
   return (
@@ -35,9 +36,9 @@ const LandingPage: FC<PageProps> = ({ data }) => {
         </Box>
         <Box margin={10}>
           <Box marginY={2}>
-            <Link to="/">
+            <I18nLink to="/">
               <Button>ホームページTOP</Button>
-            </Link>
+            </I18nLink>
           </Box>
           {[
             {
@@ -54,9 +55,9 @@ const LandingPage: FC<PageProps> = ({ data }) => {
             },
           ].map(({ to, label }) => (
             <Box key={to} marginY={2}>
-              <Link to={to}>
+              <I18nLink to={to} strict={true}>
                 <Button>{label}</Button>
-              </Link>
+              </I18nLink>
             </Box>
           ))}
         </Box>

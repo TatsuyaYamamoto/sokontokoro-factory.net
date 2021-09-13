@@ -13,8 +13,12 @@ const IndexPage: FC<PageProps> = ({ data }) => {
   return (
     <Layout>
       <Seo title="" />
-      {/* @ts-ignore TODO */}
-      <Hero title={data.site.siteMetadata.title} activeTab="home" />
+      <Hero
+        // @ts-ignore TODO
+        title={data.site.siteMetadata.title}
+        activeTab="home"
+        expanding={true}
+      />
       <section className={styles.blank} />
       <div className={styles.about}>
         <div className={styles.about__content}>
