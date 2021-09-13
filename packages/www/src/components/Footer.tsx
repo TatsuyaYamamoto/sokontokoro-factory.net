@@ -6,10 +6,7 @@ import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons"
 
 import * as styles from "./Footer.module.scss"
 import packageJson from "../../package.json"
-
-const INQUIRE = ""
-const TWITTER = "https://twitter.com/skntkr_factory"
-const GITHUB = "https://github.com/TatsuyaYamamoto/"
+import { GITHUB_URL, INQUIRE_URL, TWITTER_URL } from "../configs"
 
 const Footer: FC = () => {
   return (
@@ -27,12 +24,16 @@ const Footer: FC = () => {
           <div className={styles.footer__connect_icons}>
             <ul>
               {[
-                { href: INQUIRE, icon: faEnvelope },
-                { href: TWITTER, icon: faTwitter },
-                { href: GITHUB, icon: faGithub },
+                { href: INQUIRE_URL, icon: faEnvelope },
+                { href: TWITTER_URL, icon: faTwitter },
+                { href: GITHUB_URL, icon: faGithub },
               ].map(({ href, icon }) => (
                 <li key={href}>
-                  <a className={styles.footer__connect_icons__icon} href={href}>
+                  <a
+                    className={styles.footer__connect_icons__icon}
+                    href={href}
+                    target="_blank"
+                  >
                     <FontAwesomeIcon icon={icon} />
                   </a>
                 </li>

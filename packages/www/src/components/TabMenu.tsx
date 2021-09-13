@@ -1,8 +1,6 @@
 import React, { VFC } from "react"
-import { Link } from "gatsby"
 import clsx from "clsx"
 import { useTranslation } from "react-i18next"
-import { Box } from "@chakra-ui/react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -17,6 +15,7 @@ import {
 
 import * as styles from "./TabMenu.module.scss"
 import I18nLink from "./I18nLink"
+import { INQUIRE_URL } from "../configs"
 
 const Indicator = (props: { active: boolean }) => (
   <span
@@ -110,7 +109,7 @@ const TabMenu: VFC<TabMenuProps> = ({ active }) => {
                 label: t(`tab_communication`),
               },
               {
-                to: "https://docs.google.com/forms/d/e/1FAIpQLSe5bSPvJ5XQM0IACqZ9NKoHuRUAcC_V1an16JGwHh6HeGd-oQ/viewform",
+                to: INQUIRE_URL,
                 active: active === "inquire",
                 icon: faEnvelope,
                 label: t(`tab_contact`),
