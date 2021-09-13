@@ -1,9 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `そこんところ工房`,
-    description: `いろいろやってるサークル、そこんところ工房のWebsiteです。内側に何人かいます。`,
-    author: `@skntkr_factory`,
-    siteUrl: `https://www.sokontokoro-factory.net/`,
+    twitterId: `@skntkr_factory`,
+    siteBaseUrl: `https://www.sokontokoro-factory.net`,
+    defaultOgpImageUrl: "https://www.sokontokoro-factory.net/__ogp/www.jpg",
     i18n: {
       defaultLanguage: "ja",
       languages: ["ja", "en"]

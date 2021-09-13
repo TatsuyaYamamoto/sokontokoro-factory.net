@@ -1,53 +1,47 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React, { FC } from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
 
 interface SeoProps {
+  title?: string
   description?: string
-  lang?: string
   meta?: (
     | { name: string; content: string }
     | { property: string; content: string }
   )[]
-  title: string
 }
 
-const Seo: FC<SeoProps> = ({
-  description = ``,
-  lang = `en`,
-  meta = [],
-  title,
-}) => {
+const Seo: FC<SeoProps> = props => {
+  const { t, i18n } = useTranslation()
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            title
-            description
-            author
+            twitterId
+            siteBaseUrl
+            defaultOgpImageUrl
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const lang = i18n.language
+  const siteName = t("meta_site_name")
+  const title = props.title ? `${props.title} | ${siteName}` : siteName
+  const metaDescription = props.description ?? t("meta_site_description")
+  const siteUrl = site.siteMetadata.siteBaseUrl
+  const ogpImageUrl = site.siteMetadata.defaultOgpImageUrl
+  const twitterId = site.siteMetadata.twitterId
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title ? `${title} | ${defaultTitle}` : defaultTitle}
+      title={title}
       meta={[
         {
           name: `description`,
@@ -58,8 +52,20 @@ const Seo: FC<SeoProps> = ({
           content: title,
         },
         {
+          property: `og:site_name`,
+          content: siteName,
+        },
+        {
+          property: `og:url`,
+          content: siteUrl,
+        },
+        {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: ogpImageUrl,
         },
         {
           property: `og:type`,
@@ -67,21 +73,21 @@ const Seo: FC<SeoProps> = ({
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
+        ...(twitterId
+          ? [
+              {
+                name: `twitter:site`,
+                content: twitterId,
+              },
+              {
+                name: `twitter:creator`,
+                content: twitterId,
+              },
+            ]
+          : []),
+      ].concat(props.meta ?? [])}
     />
   )
 }
