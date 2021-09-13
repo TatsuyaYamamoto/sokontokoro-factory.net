@@ -3,7 +3,11 @@ module.exports = {
     title: `そこんところ工房`,
     description: `いろいろやってるサークル、そこんところ工房のWebsiteです。内側に何人かいます。`,
     author: `@skntkr_factory`,
-    siteUrl: `https://www.sokontokoro-factory.net/`
+    siteUrl: `https://www.sokontokoro-factory.net/`,
+    i18n: {
+      defaultLanguage: "ja",
+      languages: ["ja", "en"]
+    }
   },
   plugins: [
     // https://chakra-ui.com/guides/integrations/with-gatsby#usage

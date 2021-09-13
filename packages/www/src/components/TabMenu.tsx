@@ -1,6 +1,8 @@
 import React, { FC } from "react"
 import { Link } from "gatsby"
 import clsx from "clsx"
+import { useTranslation } from "react-i18next"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faHome,
@@ -25,6 +27,8 @@ interface TabMenuProps {
   active: "home" | "activity" | "game" | "music" | "communication" | "inquire"
 }
 const TabMenu: FC<TabMenuProps> = ({ active }) => {
+  const { t } = useTranslation()
+
   return (
     <div className={styles.tabs}>
       <div className={styles.tabScroller}>
@@ -39,7 +43,7 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
             >
               <span className={styles.tab__content}>
                 <FontAwesomeIcon className={styles.tab__icon} icon={faHome} />
-                <span className={styles.tab__label}>ホーム</span>
+                <span className={styles.tab__label}>{t(`tab_home`)}</span>
               </span>
 
               <Indicator active={active === "home"} />
@@ -54,9 +58,12 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
               )}
             >
               <span className={styles.tab__content}>
-                <FontAwesomeIcon className={styles.tab__icon} icon={faNewspaper} />
+                <FontAwesomeIcon
+                  className={styles.tab__icon}
+                  icon={faNewspaper}
+                />
 
-                <span className={styles.tab__label}>アクティビティ</span>
+                <span className={styles.tab__label}>{t(`tab_activity`)}</span>
               </span>
 
               <Indicator active={active === "activity"} />
@@ -75,7 +82,7 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
                   className={styles.tab__icon}
                   icon={faGamepad}
                 />
-                <span className={styles.tab__label}>ゲーム</span>
+                <span className={styles.tab__label}>{t(`tab_game`)}</span>
               </span>
 
               <Indicator active={active === "game"} />
@@ -92,7 +99,7 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
               <span className={styles.tab__content}>
                 <FontAwesomeIcon className={styles.tab__icon} icon={faMusic} />
 
-                <span className={styles.tab__label}>音楽</span>
+                <span className={styles.tab__label}>{t(`tab_music`)}</span>
               </span>
 
               <Indicator active={active === "music"} />
@@ -112,7 +119,9 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
                   icon={faUserFriends}
                 />
 
-                <span className={styles.tab__label}>交流ノート</span>
+                <span className={styles.tab__label}>
+                  {t(`tab_communication`)}
+                </span>
               </span>
 
               <Indicator active={active === "communication"} />
@@ -130,7 +139,7 @@ const TabMenu: FC<TabMenuProps> = ({ active }) => {
                   className={styles.tab__icon}
                   icon={faEnvelope}
                 />
-                <span className={styles.tab__label}>問い合わせ</span>
+                <span className={styles.tab__label}>{t(`tab_contact`)}</span>
               </span>
 
               <Indicator active={active === "inquire"} />

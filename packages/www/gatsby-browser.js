@@ -5,3 +5,5 @@
  */
 
 import "t28-modules/packages/embedded-tweet-web-components/dist/embedded-tweet-web-components.umd.js"
+
+export { wrapRootElement, wrapPageElement } from "./gatsby-ssr"

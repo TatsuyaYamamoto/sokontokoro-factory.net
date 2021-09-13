@@ -194,8 +194,9 @@ html(lang=`${lang}`)
 import React, { FC } from "react"
 import { PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { Trans, Translation, useTranslation } from "react-i18next"
 
-import { Box, Button } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 
 import Footer from "../../components/Footer"
 import * as styles from "../../styles/cafe-aqours.module.scss"
@@ -215,22 +216,12 @@ const discs = [
       { title: "2. Step! ZERO to ONE" },
       { title: "3. Aqours☆HEROES" },
     ],
-    links: [
-      <a
-        className="link-button vol1 youtube"
-        href="https://www.youtube.com/watch?v=IKrST1ZwIvE&amp;list=PLGCO2ueWMpn6FS2Cs3YzHXhrUWZLi7LRk"
-        target="__blank"
-      >
-        YouTubeで視聴する
-      </a>,
-      <a
-        className="link-button vol1 mellon"
-        href="https://www.melonbooks.co.jp/detail/detail.php?product_id=561154"
-        target="__blank"
-      >
-        メロンブックスでDLカードを購入する
-      </a>,
-    ],
+    links: {
+      youtube:
+        "https://www.youtube.com/watch?v=IKrST1ZwIvE&amp;list=PLGCO2ueWMpn6FS2Cs3YzHXhrUWZLi7LRk",
+      melonbooks:
+        "https://www.melonbooks.co.jp/detail/detail.php?product_id=561154",
+    },
     backgroundUrl: imageBackgroundVol1,
   },
   {
@@ -242,94 +233,27 @@ const discs = [
       { title: "2. 待ってて愛のうた" },
       { title: "3. 届かない星だとしても" },
     ],
-    links: [
-      <a
-        className="link-button vol2 youtube"
-        href="https://www.youtube.com/watch?v=IKrST1ZwIvE&amp;list=PLGCO2ueWMpn6FS2Cs3YzHXhrUWZLi7LRk"
-        target="__blank"
-      >
-        YouTubeで視聴する
-      </a>,
-      <a
-        className="link-button vol2 mellon"
-        href="https://www.melonbooks.co.jp/detail/detail.php?product_id=561155"
-        target="__blank"
-      >
-        メロンブックスでDLカードを購入する
-      </a>,
-    ],
+    links: {
+      youtube:
+        "https://www.youtube.com/watch?v=IKrST1ZwIvE&amp;list=PLGCO2ueWMpn6FS2Cs3YzHXhrUWZLi7LRk",
+      melonbooks:
+        "https://www.melonbooks.co.jp/detail/detail.php?product_id=561155",
+    },
     backgroundUrl: imageBackgroundVol2,
   },
 ]
-const faqList = [
-  {
-    q: `購入方法どのようなものですか？`,
-    a: (
-      <span>
-        <a
-          href="https://www.melonbooks.co.jp/circle/index.php?circle_id=46583"
-          target="_blank"
-        >
-          メロンブックス
-        </a>
-        から「DLカード」、または「DLコード付きの本」を購入することが出来ます。
-      </span>
-    ),
-  },
-  {
-    q: `「DLカード」「DLコード」とは何ですか？`,
-    a: (
-      <span>
-        {`　Cafe Aqoursは、沼津の写真に貼り付けられたファイルダウンロード用のQRコードを読み込むことで音源をダウンロードして頂く配信形式になっています。DLカード・DLコードにはこのQRコードが印字されています。
-　音声ファイルをダウンロードした後、使い終わったエモ写真は壁や冷蔵庫に貼って飾りましょう!`}
-      </span>
-    ),
-  },
-  {
-    q: `配信形式はどのようなものですか？`,
-    a: `DLカード・DLコードからは、以下のファイル形式をダウンロードすることが出来ます。
-  ・mp3( 圧縮音源)
-  ・wav (CD音質)
-  ・flac (ハイレゾ音質)`,
-  },
-  {
-    q: `問い合わせ先は？`,
-    a: (
-      <>
-        <a
-          className={styles.footerInfo__helpLink}
-          href="https://docs.google.com/forms/d/e/1FAIpQLSe5bSPvJ5XQM0IACqZ9NKoHuRUAcC_V1an16JGwHh6HeGd-oQ/viewform"
-          target="__blank"
-        >
-          Google Form
-        </a>
-        <span>、または</span>
-        <a
-          className={styles.footerInfo__helpLink}
-          href="https://twitter.com/T28_tatsuya"
-          target="__blank"
-        >
-          Twitter
-        </a>
-        <span>まで、どうぞお気軽に！</span>
-      </>
-    ),
-  },
-  {
-    q: `製作者について`,
-    a: (
-      <span>
-        企画・音楽・写真・イラスト: そこんところ工房(
-        <a href="https://twitter.com/skntkr_factory" target="_blank">
-          @skntkr_factory
-        </a>
-        )
-      </span>
-    ),
-  },
-]
+
+const title = "Cafe Aqours"
+const description = "Aqours no kyoku wo cafe demo kikitai."
+const twitterUrl = "https://twitter.com/skntkr_factory"
+const contactGoogleFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe5bSPvJ5XQM0IACqZ9NKoHuRUAcC_V1an16JGwHh6HeGd-oQ/viewform"
+const melonbooksStoreUrl =
+  "https://www.melonbooks.co.jp/circle/index.php?circle_id=46583"
 
 const CafeAqoursIndexPage: FC<PageProps> = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <Box className={styles.cafeAqours}>
@@ -337,15 +261,15 @@ const CafeAqoursIndexPage: FC<PageProps> = () => {
           <article className={styles.stickyContainer__contents}>
             <div className={styles.heroLogo}>
               <div className={styles.heroLogo__seriesTitle}>
-                <span>Cafe Aqours</span>
+                <span>{title}</span>
               </div>
               <div className={styles.heroLogo__seriesDescription}>
-                <span>Aqours no kyoku wo cafe demo kikitai.</span>
+                <span>{description}</span>
               </div>
             </div>
           </article>
           <div className={styles.scrollPrompt} id="scroll-prompt">
-            <span className={styles.scrollPrompt__text}>Scroll</span>
+            <span className={styles.scrollPrompt__text}>{`Scroll`}</span>
             <span className={styles.scrollPrompt__arrow} />
           </div>
           <StaticImage
@@ -359,9 +283,7 @@ const CafeAqoursIndexPage: FC<PageProps> = () => {
             <div className={styles.about}>
               <div className={styles.about__title}>Cafe Aqours?</div>
               <div className={styles.about__description}>
-                "Cafe
-                Aqours"は「カフェでクールにAqoursの曲が聞きたいぜ」というあなたの希望をかなえる、アコースティック・インストアレンジ音源です!
-                ↓にスクロールすると、リリース済みの作品を確認できます。YouTubeで視聴動画を配信していますので、コーヒーとみかんを片手にどうぞ☕🍊️
+                {t(`cafeaqours_series_description`)}
               </div>
             </div>
           </article>
@@ -395,9 +317,24 @@ const CafeAqoursIndexPage: FC<PageProps> = () => {
                     ))}
                   </ul>
                   <ul>
-                    {disc.links.map((link, i) => (
-                      <li key={i}>{link}</li>
-                    ))}
+                    <li>
+                      <a
+                        className="link-button"
+                        href={disc.links.youtube}
+                        target="__blank"
+                      >
+                        {t(`cafeaqours_link_label_watch_youtube`)}
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="link-button"
+                        href={disc.links.melonbooks}
+                        target="__blank"
+                      >
+                        {t(`cafeaqours_link_label_buy_in_melonbooks`)}
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -419,12 +356,60 @@ const CafeAqoursIndexPage: FC<PageProps> = () => {
           >
             <div className={[styles.faq, styles.footerInfo__help].join(" ")}>
               <dl>
-                {faqList.map(({ q, a }, i) => (
-                  <React.Fragment key={i}>
-                    <dt>{q}</dt>
-                    <dd>{a}</dd>
-                  </React.Fragment>
-                ))}
+                <dt>{t(`cafeaqours_faq_0_q`)}</dt>
+                <dd>
+                  <Trans
+                    i18nKey={`cafeaqours_faq_0_a`}
+                    components={{
+                      mellonLink: (
+                        <a href={melonbooksStoreUrl} target="_blank" />
+                      ),
+                    }}
+                  />
+                </dd>
+              </dl>
+              <dl>
+                <dt>{t(`cafeaqours_faq_1_q`)}</dt>
+                <dd>{t(`cafeaqours_faq_1_a`)}</dd>
+              </dl>
+              <dl>
+                <dt>{t(`cafeaqours_faq_2_q`)}</dt>
+                <dd>{t(`cafeaqours_faq_2_a`)}</dd>
+              </dl>
+              <dl>
+                <dt>{t(`cafeaqours_faq_3_q`)}</dt>
+                <dd>
+                  <Trans
+                    i18nKey={`cafeaqours_faq_3_a`}
+                    components={{
+                      googleForm: (
+                        <a
+                          className={styles.footerInfo__helpLink}
+                          href={contactGoogleFormUrl}
+                          target="__blank"
+                        />
+                      ),
+                      twitterLink: (
+                        <a
+                          className={styles.footerInfo__helpLink}
+                          href={twitterUrl}
+                          target="__blank"
+                        />
+                      ),
+                    }}
+                  />
+                </dd>
+              </dl>
+              <dl>
+                <dt>{t(`cafeaqours_faq_4_q`)}</dt>
+                <dd>
+                  <Trans
+                    i18nKey={`cafeaqours_faq_4_a`}
+                    components={{
+                      twitterLink: <a href={twitterUrl} target="_blank" />,
+                    }}
+                  />
+                </dd>
               </dl>
             </div>
           </div>
