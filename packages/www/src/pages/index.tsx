@@ -1,62 +1,44 @@
 import React, { FC } from "react"
-import { PageProps, graphql } from "gatsby"
+import { PageProps } from "gatsby"
 import { useTranslation } from "react-i18next"
+import { Box, Text, Heading, Center } from "@chakra-ui/react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-
-import * as styles from "../styles/pages_index.module.scss"
 import Hero from "../components/Hero"
 
-const IndexPage: FC<PageProps> = ({ data }) => {
+const IndexPage: FC<PageProps> = () => {
   const { t } = useTranslation()
   return (
     <Layout>
       <Seo title="" />
-      <Hero
-        // @ts-ignore TODO
-        title={data.site.siteMetadata.title}
-        activeTab="home"
-        expanding={true}
-      />
-      <section className={styles.blank} />
-      <div className={styles.about}>
-        <div className={styles.about__content}>
-          <div className={styles.typographyTitle}>
+      <Hero activeTab="home" expanding={true} />
+      <Box height="200px" />
+      <Box background={`#ffffff`}>
+        <Box textAlign="center" paddingY={8}>
+          <Heading as="h3" size="xl">
             {t(`index_about_heading`)}
-          </div>
-          <div>
-            <div className={styles.typographySubTitle}>
+          </Heading>
+          <Box marginTop={2}>
+            <Heading as="h4" size="md">
               {t(`index_about_page_title`)}
-            </div>
-            <div className={styles.typographyBody}>
-              {t(`index_about_page_description`)}
-            </div>
-          </div>
-          <div>
-            <div className={styles.typographySubTitle}>
+            </Heading>
+            <Text>{t(`index_about_page_description`)}</Text>
+          </Box>
+          <Box marginTop={2}>
+            <Heading as="h4" size="md">
               {t(`index_about_member_title`)}
-            </div>
-            <img src="/tatsuya.gif" alt="sokontokoro factory profile image" />
-            <div className={styles.typographyBody}>
-              {t(`index_about_member_description`)}
-            </div>
-          </div>
-        </div>
-      </div>
-      <section className={styles.blank} />
+            </Heading>
+            <Center>
+              <img src="/tatsuya.gif" alt="sokontokoro factory profile image" />
+            </Center>
+            <Text>{t(`index_about_member_description`)}</Text>
+          </Box>
+        </Box>
+      </Box>
+      <Box height="200px" />
     </Layout>
   )
 }
 
 export default IndexPage
-
-export const query = graphql`
-  {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
