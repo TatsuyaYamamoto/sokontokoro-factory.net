@@ -1,0 +1,25 @@
+{
+  "projects": {},
+  "targets": {
+    "sokontokoro-factory": {
+      "hosting": {
+        "w3": [
+          "w3-sokontokoro-factory"
+        ],
+        "api": [
+          "api-sokontokoro-factory"
+        ]
+      }
+    },
+    "sokontokoro-factory-develop": {
+      "hosting": {
+        "w3": [
+          "w3-dev-sokontokoro-factory"
+        ],
+        "api": [
+          "api-dev-sokontokoro-factory"
+        ]
+      }
+    }
+  }
+}

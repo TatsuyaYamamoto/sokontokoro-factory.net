@@ -9,7 +9,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "deploy-dev": "run-s clean build && firebase deploy --only hosting:w3 --project sokontokoro-factory-develop",
+    "deploy-pro": "run-s clean build && firebase deploy --only hosting:w3 --project sokontokoro-factory"
   },
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^2.0.1",
