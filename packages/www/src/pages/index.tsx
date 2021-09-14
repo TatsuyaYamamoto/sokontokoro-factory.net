@@ -7,6 +7,8 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Hero from "../components/Hero"
 
+import aboutGif from "../assets/image/tatsuya.gif"
+
 const IndexPage: FC<PageProps> = () => {
   const { t } = useTranslation()
   return (
@@ -30,7 +32,7 @@ const IndexPage: FC<PageProps> = () => {
               {t(`index_about_member_title`)}
             </Heading>
             <Center>
-              <img src="/tatsuya.gif" alt="sokontokoro factory profile image" />
+              <img src={aboutGif} alt="sokontokoro factory profile image" />
             </Center>
             <Text>{t(`index_about_member_description`)}</Text>
           </Box>

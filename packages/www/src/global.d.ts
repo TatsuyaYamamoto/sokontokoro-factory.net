@@ -1,4 +1,5 @@
 declare module "*.jpg"
+declare module "*.gif"
 
 declare namespace JSX {
   interface IntrinsicElements {

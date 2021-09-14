@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     twitterId: `@skntkr_factory`,
     siteBaseUrl: `https://www.sokontokoro-factory.net`,
-    defaultOgpImageUrl: "https://www.sokontokoro-factory.net/__ogp/www.jpg",
+    defaultOgpImageUrl:
+      "https://www.sokontokoro-factory.net/images/ogp/www.jpg",
     i18n: {
       defaultLanguage: "ja",
       languages: ["ja", "en"]
